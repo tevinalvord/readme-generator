@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./develop/utils/generateMarkdown.js');
+// Develop\utils\generateMarkdown.js
 
 // TODO: Create an array of questions for user input
 const questions = [];
@@ -9,7 +10,7 @@ const questions = [];
 // TODO: Create a function to write README file
 const writeFile = generateMarkdown => {
     return new Promise((resolve, reject) => {
-            fs.writeToFile('./dist/README.md', generateMarkdown, err => {
+            fs.writeFile('./dist/README.md', generateMarkdown, err => {
             // if there's an error reject the Promise and send the error to the Promise's `.catch()` method
             if (err) {
                 reject(err);
@@ -31,7 +32,7 @@ var init = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'projectTitle',
+            name: 'title',
             message: 'Enter your project title (Required)',
             validate: projectTitleInput => {
                 if (projectTitleInput) {
@@ -42,12 +43,38 @@ var init = () => {
                 }
             }
         },
+        {
+            type: 'input',
+            name: 'motivation',
+            message: 'What was your motivation?'
+        },
+        {
+            type: 'input',
+            name: 'build',
+            message: 'Why did you build this project?'
+        },
+        {
+            type: 'input',
+            name: 'problem',
+            message: 'What problem does it solve?'
+        },
+        {
+            type: 'input',
+            name: 'learn',
+            message: 'What did you learn?'
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'What are the steps required to install your project?'
+        },
 
 
         
     ]).then(projectData => {
         questions.push(projectData);
-        console.log(questions);
+        // console.log(questions);
+        return questions;
     });
 };
 

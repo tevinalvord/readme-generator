@@ -11,51 +11,67 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-// const [data] = questions;
+module.exports = questions => {
+    console.log(questions);
+    const { title, motivation, build, problem, learn, installation } = questions[0];
+    return `# ${title}
 
-const generateMarkdown = (data) => {
-  return `
-  # ${data.projectTitle}
+## Description
 
-  ## Description
+${motivation}
+${build}
+${problem}
+${learn}
 
-  ${data.motivation}
-  ${data.build}
-  ${data.problem}
-  ${data.learn}
+# Table of Contents
 
-  # Table of Contents
+- [Installation](#installation)
+- [Useage](#Useage)
+- [Credits](#Credits)
+- [License](#License)
 
-  - [Installation](#installation)
-  - [Useage](#Useage)
-  - [Credits](#Credits)
-  - [License](#License)
+## Installation
 
-  ## Installation
-
-  ${data.installation}
-
-  ## Usage
-
-  ${data.usage}
-
-  ## License
-
-  ${data.license}
-
-  ## How to Contribute
-
-  ${data.contribute}
-
-  $$ Tests
-
-  ${data.tests}
-
-  $$ Questions
-
-  ${data.GitHub}
-  ${data.email}
+${installation}
 `;
-}
+};
 
-module.exports = generateMarkdown;
+
+// ## Description
+
+// ${data.motivation}
+// ${data.build}
+// ${data.problem}
+// ${data.learn}
+
+// # Table of Contents
+
+// - [Installation](#installation)
+// - [Useage](#Useage)
+// - [Credits](#Credits)
+// - [License](#License)
+
+// ## Installation
+
+// ${data.installation}
+
+// ## Usage
+
+// ${data.usage}
+
+// ## License
+
+// ${data.license}
+
+// ## How to Contribute
+
+// ${data.contribute}
+
+// $$ Tests
+
+// ${data.tests}
+
+// $$ Questions
+
+// ${data.GitHub}
+// ${data.email}
