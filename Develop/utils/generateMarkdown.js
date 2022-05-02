@@ -27,30 +27,30 @@ function renderLicenseBadge([license]) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink([license]) {
-    if (!license) {
-        return '';
-    }
+// function renderLicenseLink([license]) {
+//     if (!license) {
+//         return '';
+//     }
 
-    switch(license) {
-        case 'GNU AGPLv3':
-           return 'https://choosealicense.com/licenses/agpl-3.0/';
-       case 'GNU GPLv3':
-           return 'https://choosealicense.com/licenses/gpl-3.0/';
-       case 'GNU LGPLv3':
-           return 'https://choosealicense.com/licenses/lgpl-3.0/';
-       case 'Mozilla Public License 2.0':
-           return 'https://choosealicense.com/licenses/mpl-2.0/';
-       case 'Apache License 2.0':
-           return 'https://choosealicense.com/licenses/apache-2.0/';
-       case 'MIT License':
-           return 'https://choosealicense.com/licenses/mit/';
-       case 'Boost Software License 1.0':
-           return 'https://choosealicense.com/licenses/bsl-1.0/';
-       case 'The Unlicense':
-           return 'https://choosealicense.com/licenses/unlicense/';
-   }
-};
+//     switch(license) {
+//         case 'GNU AGPLv3':
+//            return '(https://choosealicense.com/licenses/agpl-3.0/)';
+//        case 'GNU GPLv3':
+//            return '(https://choosealicense.com/licenses/gpl-3.0/)';
+//        case 'GNU LGPLv3':
+//            return '(https://choosealicense.com/licenses/lgpl-3.0/)';
+//        case 'Mozilla Public License 2.0':
+//            return '(https://choosealicense.com/licenses/mpl-2.0/)';
+//        case 'Apache License 2.0':
+//            return '(https://choosealicense.com/licenses/apache-2.0/)';
+//        case 'MIT License':
+//            return '(https://choosealicense.com/licenses/mit/)';
+//        case 'Boost Software License 1.0':
+//            return '(https://choosealicense.com/licenses/bsl-1.0/)';
+//        case 'The Unlicense':
+//            return '(https://choosealicense.com/licenses/unlicense/)';
+//    }
+// };
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -61,21 +61,21 @@ function renderLicenseSection([license]) {
 
     switch(license) {
         case 'GNU AGPLv3':
-           return `Licensed under the [GNU AGPLv3](${renderLicenseLink(license)})`;
+           return 'Licensed under the [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)';
        case 'GNU GPLv3':
-           return `Licensed under the [GNU GPLv3](${renderLicenseLink(license)})`;
+           return 'Licensed under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)';
        case 'GNU LGPLv3':
-           return `Licensed under the [GNU LGPLv3](${renderLicenseLink(license)})`;
+           return 'Licensed under the [GNU LGPLv3](https://choosealicense.com/licenses/lgpl-3.0/)';
        case 'Mozilla Public License 2.0':
-           return `Licensed under the [Mozilla Public License 2.0](${renderLicenseLink(license)})`;
+           return 'Licensed under the [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)';
        case 'Apache License 2.0':
-           return `Licensed under the [Apache License 2.0](${renderLicenseLink(license)})`;
+           return 'Licensed under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)';
        case 'MIT License':
-           return `Licensed under the [MIT License](${renderLicenseLink(license)})`;
+           return 'Licensed under the [MIT License](https://choosealicense.com/licenses/mit/)';
        case 'Boost Software License 1.0':
-           return `Licensed under the [Boost Software License 1.0](${renderLicenseLink(license)})`;
+           return 'Licensed under the [Boost Software License 1.0](https://choosealicense.com/licenses/bsl-1.0/)';
        case 'The Unlicense':
-           return  `Licensed under the [The Unlicense](${renderLicenseLink(license)})`;
+           return  'Licensed under the [The Unlicense](https://choosealicense.com/licenses/unlicense/)';
    }
 };
 
