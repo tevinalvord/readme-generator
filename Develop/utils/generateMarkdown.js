@@ -82,17 +82,14 @@ function renderLicenseSection([license]) {
 // TODO: Create a function to generate markdown for README
 module.exports = questions => {
     console.log(questions);
-    const { title, motivation, build, problem, learn, installation, usage, license, contribute, tests, github, email } = questions[0];
+    const { title, description, installation, usage, license, contribute, tests, github, email } = questions[0];
     return `# ${title}
 
 ${renderLicenseBadge(license)}
 
 ## Description
 
-${motivation}.
-${build}.
-${problem}.
-${learn}.
+${description}
 
 # Table of Contents
 
@@ -127,3 +124,8 @@ If you have any questions reach out through my GitHub http://github.com/${github
 Or you can email me at ${email}
 `;
 };
+
+// ${motivation}.
+// ${build}.
+// ${problem}.
+// ${learn}.

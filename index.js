@@ -34,8 +34,8 @@ var init = () => {
             type: 'input',
             name: 'title',
             message: 'Enter your project title (Required)',
-            validate: projectTitleInput => {
-                if (projectTitleInput) {
+            validate: titleInput => {
+                if (titleInput) {
                     return true;
                 } else {
                     console.log('Please enter your project title!');
@@ -44,24 +44,22 @@ var init = () => {
             }
         },
         {
-            type: 'input',
-            name: 'motivation',
-            message: 'What was your motivation?'
+            type: 'confirm',
+            name: 'confirmDescription',
+            message: 'Would you like to add a section to describe your project?',
+            default: true
         },
         {
             type: 'input',
-            name: 'build',
-            message: 'Why did you build this project?'
-        },
-        {
-            type: 'input',
-            name: 'problem',
-            message: 'What problem does it solve?'
-        },
-        {
-            type: 'input',
-            name: 'learn',
-            message: 'What did you learn?'
+            name: 'description',
+            message: 'What was your motivation? Why did you build this project? What problem does it solve? What did you learn?',
+            when: ({ confirmDescription }) => {
+                if (confirmDescription) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -74,7 +72,7 @@ var init = () => {
             message: 'Provide instructions and examples for use. Include screenshots as needed.'
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
             message: 'Select a license for your project from the options below. If you need help choosing a license, refer to https://choosealicense.com/licenses/',
             choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
@@ -105,12 +103,28 @@ var init = () => {
         {
             type: 'input',
             name: 'github',
-            message: 'Please enter you GitHub Username!'
+            message: 'Please enter you GitHub Username! (Required)',
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your project title!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Please enter you email address!'
+            message: 'Please enter you email address! (Required)',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your project title!');
+                    return false;
+                }
+            }
         }
     ]).then(projectData => {
         questions.push(projectData);
