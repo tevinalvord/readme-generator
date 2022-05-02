@@ -68,9 +68,50 @@ var init = () => {
             name: 'installation',
             message: 'What are the steps required to install your project?'
         },
-
-
-        
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Provide instructions and examples for use. Include screenshots as needed.'
+        },
+        {
+            type: 'checkbox',
+            name: 'license',
+            message: 'Select a license for your project from the options below. If you need help choosing a license, refer to https://choosealicense.com/licenses/',
+            choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+        },
+        {
+            type: 'confirm',
+            name: 'confirmContribute',
+            message: 'Would you like to add a section explaining how other developers can contribute to your project?',
+            default: true
+        },
+        {
+            type: 'input',
+            name: 'contribute',
+            message: 'How can other developers contribute to your project?',
+            when: ({ confirmContribute }) => {
+                if (confirmContribute) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'Write tests for your application. Then provide examples on how to run them here.'
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Please enter you GitHub Username!'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter you email address!'
+        }
     ]).then(projectData => {
         questions.push(projectData);
         // console.log(questions);
@@ -78,7 +119,7 @@ var init = () => {
     });
 };
 
-//Function call to initialize app
+// Function call to initialize app
 init()
     .then(questions => {
         return generateMarkdown(questions); 
@@ -89,3 +130,21 @@ init()
     .catch(err => {
         console.log(err);
     });
+
+// var test4 = 4;
+// var testNumber = ['3'];
+
+// console.log(testNumber);
+
+// function test([test]) {
+//     switch(test) {
+//         case '1':
+//             return `test 1 - ${test4}`
+//         case '2':
+//             return `test 2 - ${test4}`
+//         case '3':
+//             return `test 3 - ${test4}`
+//     }
+// }
+
+// console.log(test(testNumber))
